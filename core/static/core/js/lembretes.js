@@ -4,6 +4,16 @@ let buttonAddLembrete = document.querySelector('#buttonAddLembrete');
 let lista = document.querySelector('#lista');
 let arrayLembretes = []
 
+$.ajax("lembretes.json", {success: function(data){   
+    arrayLembretes = data
+    adicionarAuto()}})
+
+function adicionarAuto(){
+    for(var i = 0; i < arrayLembretes.length; i++) {
+        adicionarMateria(arrayLembretes[i])
+        console.log(arrayLembretes[i])
+      }
+}
 inputAdicionarLembrete.addEventListener('keypress', (e) => {
     if (e.keyCode == 13) {
         let Lembrete = {
@@ -26,6 +36,7 @@ inputData.addEventListener('keypress', (e) => {
         arrayLembretes.push(Lembrete);
     }
 });
+
 
 buttonAddLembrete.addEventListener('click', (e) =>{
         let lembrete = {
@@ -61,17 +72,17 @@ function criarTagLI(lembrete){
     
     let div = document.createElement('div');
 
-    let buttoneditar = document.createElement('button');
-    buttoneditar.classList.add('buttonAcao');
-    buttoneditar.innerHTML = '<i class="fa fa-pencil"></i>';
-    buttoneditar.setAttribute('onclick', 'editar('+lembrete.id+')')
+    //let buttoneditar = document.createElement('button');
+    //buttoneditar.classList.add('buttonAcao');
+    //buttoneditar.innerHTML = '<i class="fa fa-pencil"></i>';
+    //buttoneditar.setAttribute('onclick', 'editar('+lembrete.id+')')
 
     let buttonexcluir = document.createElement('button');
     buttonexcluir.classList.add('buttonAcao');
     buttonexcluir.innerHTML = '<i class="fa fa-trash"></i>';
     buttonexcluir.setAttribute('onclick', 'excluir('+lembrete.id+')')
 
-    div.appendChild(buttoneditar);
+    //div.appendChild(buttoneditar);
     div.appendChild(buttonexcluir);
 
     li.appendChild(span);

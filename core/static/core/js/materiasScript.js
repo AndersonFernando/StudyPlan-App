@@ -2,18 +2,18 @@ let inputAdicionarMateria = document.querySelector('#inputAdicionarMateria');
 let inputData = document.querySelector('#inputData');
 let buttonAddMateria = document.querySelector('#buttonAddMateria');
 let lista = document.querySelector('#lista');
-let arrayMaterias = []
+let arrayLembretes = []
 let file = "base.json"
 
 //
 $.ajax("base.json", {success: function(data){   
-    arrayMaterias = data
+    arrayLembretes = data
     adicionarAuto()}})
 
 function adicionarAuto(){
-    for(var i = 0; i < arrayMaterias.length; i++) {
-        adicionarMateria(arrayMaterias[i])
-        console.log(arrayMaterias[i])
+    for(var i = 0; i < arrayLembretes.length; i++) {
+        adicionarMateria(arrayLembretes[i])
+        console.log(arrayLembretes[i])
       }
 }
 
@@ -25,7 +25,7 @@ inputAdicionarMateria.addEventListener('keypress', (e) => {
             id: gerarId(),
         }
         adicionarMateria(materia)
-        arrayMaterias.push(materia);
+        arrayLembretes.push(materia);
     }
 });
 
@@ -37,7 +37,7 @@ inputData.addEventListener('keypress', (e) => {
             "data": ""+inputData.value+"", 
         }
         adicionarMateria(materia);
-        arrayMaterias.push(materia);
+        arrayLembretes.push(materia);
     }
 });
 
@@ -48,7 +48,7 @@ buttonAddMateria.addEventListener('click', (e) =>{
             "data": ""+inputData.value+"", 
         }
         adicionarMateria(materia);
-        arrayMaterias.push(materia);
+        arrayLembretes.push(materia);
 });
 
 
@@ -102,7 +102,7 @@ function excluir(id) {
     if(confirmacao) {
         let li = document.getElementById(''+id+'')
         if (li) {
-            arrayMaterias.splice(arrayMaterias.indexOf('id'), id);
+            arrayLembretes.splice(arrayLembretes.indexOf('id'), id);
             lista.removeChild(li);
         }
     } 

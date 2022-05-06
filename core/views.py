@@ -40,6 +40,10 @@ def lembretes(request):
 def teste(request):
     return render(request, 'core/index.html')
 
+
+def metas(request):
+    return render(request, 'core/metas.html')
+
 def materias(request):
     return render(request, 'core/materias.html')
 
