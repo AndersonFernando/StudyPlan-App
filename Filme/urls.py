@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.views import listagem, inicio,agenda,teste,materias
+from core.views import listagem, inicio,agenda,teste,materias,lembretes
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,9 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('listagem/', listagem, name="listagem"),
     path('', inicio),
+    path('lembretes/',lembretes,name="lembretes"),
     path('agenda2/', agenda,name="agenda2"),
     path('teste/', teste, name="teste"),
-    path('materias/', materias),
+    path('materias/', materias,name="materias"),
     path("accounts/", include("allauth.urls")),
     path("", include("core.urls", namespace="core")),
 

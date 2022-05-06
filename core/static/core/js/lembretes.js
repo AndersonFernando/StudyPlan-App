@@ -1,5 +1,4 @@
 let inputAdicionarLembrete = document.querySelector('#inputAdicionarLembrete');
-let inputAdicionarDescricao = document.querySelector('#inputAdicionarDescricao');
 let inputData = document.querySelector('#inputData');
 let buttonAddLembrete = document.querySelector('#buttonAddLembrete');
 let lista = document.querySelector('#lista');
@@ -9,18 +8,6 @@ inputAdicionarLembrete.addEventListener('keypress', (e) => {
     if (e.keyCode == 13) {
         let Lembrete = {
             nome: inputAdicionarLembrete.value,
-            descrição: inputAdicionarDescricao.value,
-            data: inputData.value,
-            id: gerarId(),
-        }
-        AdicionarLembrete(Lembrete)
-    }
-});
-inputAdicionarDescricao.addEventListener('keypress', (e) => {
-    if (e.keyCode == 13) {
-        let Lembrete = {
-            nome: inputAdicionarLembrete.value,
-            descrição: inputAdicionarDescricao.value,
             data: inputData.value,
             id: gerarId(),
         }
@@ -32,7 +19,6 @@ inputData.addEventListener('keypress', (e) => {
     if (e.keyCode == 13) {
         let Lembrete = {
             nome: inputAdicionarMateria.value,
-            descrição: inputAdicionarDescricao.value,
             data: inputData.value,
             id: gerarId(),
         }
@@ -44,7 +30,6 @@ inputData.addEventListener('keypress', (e) => {
 buttonAddLembrete.addEventListener('click', (e) =>{
         let lembrete = {
             nome: inputAdicionarLembrete.value,
-            descrição: inputAdicionarDescricao.value,
             data: inputData.value,
             id: gerarId(),
         }
@@ -61,7 +46,6 @@ function AdicionarLembrete(lembrete){
     let li = criarTagLI(lembrete);
     lista.appendChild(li);
     inputAdicionarLembrete.value = '';
-    inputAdicionarDescricao.value = '';
     inputData.value = '';
 }
 

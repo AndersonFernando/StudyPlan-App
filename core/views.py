@@ -34,6 +34,9 @@ def inicio(request):
 def agenda(request):
     return render(request, 'core/agenda.html')
 
+def lembretes(request):
+    return render(request, 'core/lembretes.html')
+
 def teste(request):
     return render(request, 'core/index.html')
 
@@ -66,17 +69,6 @@ def agendar(request, pk):
 
 
 
-#tipo = filme ou anime
-#numero_ep_ou_temporada = numero referente ao ep ou a temporada (que foi alterado)
-#tipo_ep_ou_temporada = se é ep ou a temporada que está sendo alterado
-
-
 def alterar_episodio(request):
     print("ENTROU AQUI")
-    # if tipo == "anime":
-    #     if tipo_ep_ou_temporada == 'ep':
-    #         Anime.objects.filter(id=id).update(ep_atual = numero_ep_ou_temporada)
-    #     elif tipo_ep_ou_temporada == 'temp':
-    #         Anime.objects.filter(id=id).update(temp_atual=numero_ep_ou_temporada)
-
     return {"status": "Erro"}
