@@ -10,7 +10,7 @@ $.ajax("lembretes.json", {success: function(data){
 
 function adicionarAuto(){
     for(var i = 0; i < arrayLembretes.length; i++) {
-        adicionarMateria(arrayLembretes[i])
+        AdicionarLembrete(arrayLembretes[i])
         console.log(arrayLembretes[i])
       }
 }

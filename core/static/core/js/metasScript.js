@@ -45,7 +45,6 @@ function adicionarMeta(meta){
     let li = criarTagLI(meta);
     lista.appendChild(li);
     inputAdicionarMeta.value = '';
-    inputData.value = '';
 }
 
 function criarTagLI(meta){
