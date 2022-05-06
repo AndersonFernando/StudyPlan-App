@@ -1,0 +1,75 @@
+body{
+    background: black;
+    color: white;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+.AbaDeLogout {
+    max-height: 70px;
+    height: 60px;
+    background: #2b2b2b;
+
+}
+
+.logout {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.logout button {
+    width: 45px;
+    border-radius: 12px;
+    width: 80px;
+    height: 50px;
+    margin-left: 1200px;
+    border: 1px solid #191818;
+    background: #191818;
+    color: white;
+    outline: none;
+}
+
+.logout button:hover {
+    background: #1f1e1e;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.conteudo {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 450px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #2b2b2b;
+    padding: 55px;
+    border-radius: 12px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.botoes button {
+    width: 45px;
+    border-radius: 12px;
+    width: 80px;
+    height: 50px;
+    margin-left: 8px;
+    border: 1px solid #191818;
+    background: #191818;
+    color: white;
+    outline: none;
+}
+
+.botoes button:hover {
+    background: #1f1e1e;
+    cursor: pointer;
+}
