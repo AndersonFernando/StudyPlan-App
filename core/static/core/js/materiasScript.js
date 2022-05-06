@@ -3,6 +3,19 @@ let inputData = document.querySelector('#inputData');
 let buttonAddMateria = document.querySelector('#buttonAddMateria');
 let lista = document.querySelector('#lista');
 let arrayMaterias = []
+let file = "base.json"
+
+//
+$.ajax("base.json", {success: function(data){   
+    arrayMaterias = data
+    adicionarAuto()}})
+
+function adicionarAuto(){
+    for(var i = 0; i < arrayMaterias.length; i++) {
+        adicionarMateria(arrayMaterias[i])
+        console.log(arrayMaterias[i])
+      }
+}
 
 inputAdicionarMateria.addEventListener('keypress', (e) => {
     if (e.keyCode == 13) {
@@ -12,15 +25,16 @@ inputAdicionarMateria.addEventListener('keypress', (e) => {
             id: gerarId(),
         }
         adicionarMateria(materia)
+        arrayMaterias.push(materia);
     }
 });
 
 inputData.addEventListener('keypress', (e) => {
     if (e.keyCode == 13) {
         let materia = {
-            nome: inputAdicionarMateria.value,
-            data: inputData.value,
-            id: gerarId(),
+            "id": ""+gerarId()+"",
+            "nome": ""+inputAdicionarMateria.value+"",
+            "data": ""+inputData.value+"", 
         }
         adicionarMateria(materia);
         arrayMaterias.push(materia);
@@ -29,9 +43,9 @@ inputData.addEventListener('keypress', (e) => {
 
 buttonAddMateria.addEventListener('click', (e) =>{
         let materia = {
-            nome: inputAdicionarMateria.value,
-            data: inputData.value,
-            id: gerarId(),
+            "id": ""+gerarId()+"",
+            "nome": ""+inputAdicionarMateria.value+"",
+            "data": ""+inputData.value+"", 
         }
         adicionarMateria(materia);
         arrayMaterias.push(materia);
@@ -61,17 +75,17 @@ function criarTagLI(materia){
     
     let div = document.createElement('div');
 
-    let buttoneditar = document.createElement('button');
-    buttoneditar.classList.add('buttonAcao');
-    buttoneditar.innerHTML = '<i class="fa fa-pencil"></i>';
-    buttoneditar.setAttribute('onclick', 'editar('+materia.id+')')
+   // let buttoneditar = document.createElement('button');
+   // buttoneditar.classList.add('buttonAcao');
+   // buttoneditar.innerHTML = '<i class="fa fa-pencil"></i>';
+   // buttoneditar.setAttribute('onclick', 'editar('+materia.id+')')
 
     let buttonexcluir = document.createElement('button');
     buttonexcluir.classList.add('buttonAcao');
     buttonexcluir.innerHTML = '<i class="fa fa-trash"></i>';
     buttonexcluir.setAttribute('onclick', 'excluir('+materia.id+')')
 
-    div.appendChild(buttoneditar);
+    // div.appendChild(buttoneditar);
     div.appendChild(buttonexcluir);
 
     li.appendChild(span);
