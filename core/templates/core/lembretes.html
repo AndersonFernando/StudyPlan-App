@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyPlan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'core/css/lembretes.css' %}">
+</head>
+<body>
+  <body>
+    <div class="AbaDeLogout">
+        <div class="logout">
+            <a href="{% url 'teste' %}"><button>Voltar</button></a>
+            <a href="   "><button>Logout</button></a>
+        </div>
+    </div>
+
+  <div class="lembretes">
+    <div class="lembrete">
+      <input type="text" id="inputAdicionarLembrete" placeholder="Adicione um novo Lembrete "> 
+      <input type="text" id="inputAdicionarDescricão" placeholder="Adicione uma descrição">
+      <input type="date" id="inputData"> 
+      <button id="buttonAddLembrete">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+      
+    <ul id="lista">
+   </div>
+
+   <script src="{% static 'core/js/lembretes.js' %}"></script>
+</body>
+</html>
