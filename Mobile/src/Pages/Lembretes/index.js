@@ -8,9 +8,14 @@ import {
   FlatList
 } from 'react-native'
 
-import api from '../../services/api'
+import { useNavigation } from '@react-navigation/native'
 
 import Constants from 'expo-constants';
+import { Feather } from '@expo/vector-icons';
+
+
+import api from '../../services/api'
+
 
 export default function Lembretes() {
 
@@ -23,17 +28,23 @@ export default function Lembretes() {
 
     setInfoLembrete(data);
     console.log(infoLembrete)
-
-    console.log(infoLembrete[0]['nome'])
+    //console.log(infoLembrete[0]['nome'])
   }
 
   useEffect(() => {
     getLembretes();
+
   }, [])
+
+  const navigation = useNavigation();
+
+  function navigateToAgenda() {
+    navigation.navigate('Agenda')
+  }
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.container_button}>
+      <View style={styles.containerButton}>
         <TouchableOpacity onPress={getLembretes} style={styles.buttonLembretes} >
           <Text style={styles.buttonText}>Lembretes</Text>
         </TouchableOpacity>
@@ -41,17 +52,28 @@ export default function Lembretes() {
 
       <FlatList
         data={infoLembrete}
-        style={styles.container_infoLembretes}
+        style={styles.lembretesList}
+        showsVerticalScrollIndicator={false}
         keyExtractor={itemsLembrete => itemsLembrete.id}
         renderItem={({item}) => (
-          <View style={styles.view_text} >
+          <View style={styles.lembrete} >
+            <Text style={styles.lembretePropety}>Nome: </Text>
+            <Text style={styles.lembreteValue}>{item.nome}</Text>
 
-            <Text style={styles.text}>Nome: {item.nome}</Text>
+            <Text style={styles.lembretePropety}>Descrição: </Text>
+            <Text style={styles.lembreteValue} >{item.descricao}</Text>
+            
+            <Text style={styles.lembretePropety}>Data: </Text>
+            <Text style={styles.lembreteValue} >{item.data}</Text>
 
-            <Text style={styles.text}>Descrição: {item.descricao}</Text>
 
-            <Text style={styles.text}>Data: {item.data}</Text>
-
+            <TouchableOpacity
+              style={styles.detailsButton} 
+              onPress={navigateToAgenda}
+            >
+              <Text style={styles.detailsButtonText}>Ver na Agenda</Text>
+              <Feather name="arrow-right" size={16} color="red" />
+            </TouchableOpacity>
           </View>
         )}
       />
@@ -65,7 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  container_button: {
+  containerButton: {
     alignItems: 'center',
     paddingHorizontal: 24,
     paddingTop: Constants.statusBarHeight + 20
@@ -86,20 +108,42 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
 
-  container_infoLembretes: {
+  lembretesList: {
     marginTop: 30,
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: '5%',
+    marginRight: '5%',
+    maxHeight: '77%'
   },
 
-  view_text: {
+  lembrete: {
     padding: 14,
     borderRadius: 8,
     backgroundColor: '#fff',
     marginBottom: 16
   },
 
-  text: {
+  lembretePropety: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    color: '#41414d'
+  },
+
+  lembreteValue: {
+    marginTop: 8,
+    fontSize: 15,
+    marginBottom: 20,
+    color: '#737380'
+  },
+
+  detailsButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+
+  detailsButtonText:{
+    color: '#e02041',
+    fontSize: 15,
     fontWeight: 'bold'
   },
 });
