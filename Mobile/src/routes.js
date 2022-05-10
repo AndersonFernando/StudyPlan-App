@@ -16,13 +16,13 @@ import metas from './assets/objetivo.png';
 
 import ButtonCalendar from './components/ButtonCalendar';
 
-import Agenda from './Pages/Agenda';
-import Lembretes from './Pages/Lembretes';
-import LinksUteis from './Pages/LinksUteis';
-import Materias from './Pages/Materias';
-import Metas from './Pages/Metas';
+import Agenda from './pages/Agenda';
+import Lembretes from './pages/Lembretes';
+import LinksUteis from './pages/LinksUteis';
+import Materias from './pages/Materias';
+import Metas from './pages/Metas';
 
-import AddLembrete from './Pages/AddLembrete';
+import AddLembrete from './pages/AddLembrete';
 
 //import { Agenda } from 'react-native-calendars';
 
