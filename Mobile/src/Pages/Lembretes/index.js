@@ -17,36 +17,46 @@ import { Feather } from '@expo/vector-icons';
 import api from '../../services/api'
 
 
-export default function Lembretes() {
+export default function Lembretes({ navigation }) {
 
   const [infoLembrete, setInfoLembrete] = useState([{}]);
 
   async function getLembretes() {
-    const { data } = await api.get('/lembretes/1')
+    const { data } = await api.get('/lembretes/1');
 
     //const data = respose.data;
 
     setInfoLembrete(data);
-    console.log(infoLembrete)
-    //console.log(infoLembrete[0]['nome'])
+    //console.log(infoLembrete);
   }
 
   useEffect(() => {
     getLembretes();
 
-  }, [])
-
-  const navigation = useNavigation();
+  }, []);
 
   function navigateToAgenda() {
-    navigation.navigate('Agenda')
+    
+    //navigation.navigate('Agenda');
+
+    navigation.navigate('Screens Main', {
+      screen: 'Agenda',
+      
+    })
+  }
+
+  function navigateToAddLembrete() {
+    navigation.navigate('Screen Stack Add Lembrete', {
+      screen: 'Add Lembrete',
+      
+    })
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerButton}>
-        <TouchableOpacity onPress={getLembretes} style={styles.buttonLembretes} >
-          <Text style={styles.buttonText}>Lembretes</Text>
+        <TouchableOpacity onPress={navigateToAddLembrete} style={styles.buttonLembretes} >
+          <Text style={styles.buttonText}>Adicionar Lembrete</Text>
         </TouchableOpacity>
       </View>
 
