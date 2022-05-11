@@ -31,7 +31,10 @@ export default function Metas() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header} > 
-        <Text style={styles.headerText}>Metas</Text>
+        <Text style={styles.headerText}>METAS</Text>
+        <TouchableOpacity>
+          <Feather name="plus" size={30} color="red"/>
+        </TouchableOpacity>
       </View>
       <FlatList
         data={infoMetas}
@@ -57,7 +60,7 @@ export default function Metas() {
               onPress={() => {}}
             >
               <Text style={styles.detailsButtonText}>Ver na Agenda</Text>
-              <Feather name="arrow-right" size={16} color="red" />
+              <Feather name="arrow-right" size={18} color="red" />
             </TouchableOpacity>
           </View>
         )}
@@ -75,6 +78,10 @@ const styles = StyleSheet.create({
 
   header: {
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: '1%',
+    marginRight: '1%',
     
   },
 
@@ -88,7 +95,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: '0.5%',
     marginRight: '0.5%',
-    maxHeight: '85.7%'
+    maxHeight: '83.7%'
   },
 
   meta: {

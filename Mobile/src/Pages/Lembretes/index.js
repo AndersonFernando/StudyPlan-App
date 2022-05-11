@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import Constants from 'expo-constants';
 import { Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 import api from '../../services/api'
@@ -36,27 +37,24 @@ export default function Lembretes({ navigation }) {
   }, []);
 
   function navigateToAgenda() {
-    
-    //navigation.navigate('Agenda');
-
     navigation.navigate('Screens Main', {
       screen: 'Agenda',
-      
-    })
-  }
+
+    });
+  };
 
   function navigateToAddLembrete() {
     navigation.navigate('Screen Stack Add Lembrete', {
       screen: 'Add Lembrete',
-      
-    })
-  }
+    });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.containerButton}>
-        <TouchableOpacity onPress={navigateToAddLembrete} style={styles.buttonLembretes} >
-          <Text style={styles.buttonText}>Adicionar Lembrete</Text>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>LEMBRETES</Text>
+        <TouchableOpacity onPress={navigateToAddLembrete}>
+          <MaterialCommunityIcons name="bell-plus" size={30} color="red" />
         </TouchableOpacity>
       </View>
 
@@ -65,20 +63,20 @@ export default function Lembretes({ navigation }) {
         style={styles.lembretesList}
         showsVerticalScrollIndicator={false}
         keyExtractor={itemsLembrete => itemsLembrete.id}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <View style={styles.lembrete} >
             <Text style={styles.lembretePropety}>Nome: </Text>
             <Text style={styles.lembreteValue}>{item.nome}</Text>
 
             <Text style={styles.lembretePropety}>Descrição: </Text>
             <Text style={styles.lembreteValue} >{item.descricao}</Text>
-            
+
             <Text style={styles.lembretePropety}>Data: </Text>
             <Text style={styles.lembreteValue} >{item.data}</Text>
 
 
             <TouchableOpacity
-              style={styles.detailsButton} 
+              style={styles.detailsButton}
               onPress={navigateToAgenda}
             >
               <Text style={styles.detailsButtonText}>Ver na Agenda</Text>
@@ -95,12 +93,23 @@ export default function Lembretes({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 4,
+    paddingTop: Constants.statusBarHeight + 20
+
   },
 
-  containerButton: {
+  header: {
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingTop: Constants.statusBarHeight + 20
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: '5%',
+    marginRight: '5%',
+  },
+
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#e2020f',
   },
 
   buttonLembretes: {
@@ -122,7 +131,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: '5%',
     marginRight: '5%',
-    maxHeight: '77%'
+    maxHeight: '80.8%'
   },
 
   lembrete: {
@@ -151,7 +160,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 
-  detailsButtonText:{
+  detailsButtonText: {
     color: '#e02041',
     fontSize: 15,
     fontWeight: 'bold'

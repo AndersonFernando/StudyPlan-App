@@ -16,7 +16,7 @@ export default function Agenda() {
   return (
     <SafeAreaView style={styles.container} >
       <View style={styles.container_text} >
-        <Text style={styles.title}>Agenda</Text>
+        <Text style={styles.title}>AGENDA</Text>
       </View>
       <CalendarList
         // Callback which gets executed when visible months change in scroll view. Default = undefined
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     paddingEnd: 5,
-    color: '#111111'
+    color: '#e2020f'
   }
 });
