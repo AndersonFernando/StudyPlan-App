@@ -3030,11 +3030,21 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  color: #FFFF00;
-  background-color: #000000;
-  border-color: #FFFF00;
+  color: #F5F5F5;
+  background-color: #00008B;
+  border-color: #000000;
+}
+.btn-primary2 {
+  color: #F5F5F5;
+  background-color: #008000;
+  border-color: #000000;
 }
 .btn-primary:hover {
+  color: #fff;
+  background-color: #d9aa00;
+  border-color: #cca000;
+}
+.btn-primary2:hover {
   color: #fff;
   background-color: #d9aa00;
   border-color: #cca000;
@@ -11410,7 +11420,7 @@ header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
-  color: #FFFAFA;
+  color: #B8860B;
   background-image: url("../assets/img/agenda.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;

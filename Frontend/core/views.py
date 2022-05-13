@@ -47,6 +47,9 @@ def metas(request):
 def materias(request):
     return render(request, 'core/materias.html')
 
+def linksuteis(request):
+    return render(request, 'core/linksuteis.html')
+
 
 def mudar_status_agenda(request, pk):
     novo_status = request.GET.get("novo_status", None)
