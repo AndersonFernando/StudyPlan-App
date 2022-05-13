@@ -2,9 +2,12 @@
 
 
 # Frontend Tecnologias:
- - Django
+ - Django 4.0.4
+ - Django-allauth 0.50.0
+ - Django-crispy-forms 1.14.0
  - JavaScript
- - Python
+ - Python 3
+ - psycopg2 2.9.3
 
 # Mobile Tecnologias:
  - React Native
