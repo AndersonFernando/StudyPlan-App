@@ -18,7 +18,7 @@
  - React Native
  - Expo Cli
 
-## 🎓 Cuso:
+## 🎓 Curso:
  - Bacharelado em Sistemas de Informação.
  - UFRPE (UAST) - Serra Talhada.
  - Professor: José Vinícius Vieira.
