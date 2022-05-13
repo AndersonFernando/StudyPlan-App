@@ -18,14 +18,22 @@ export default function LinksUteis({ navigation }) {
 
   const [infoLinks, setInfoLinks] = useState([{}]);
 
-  function navigateToAgenda(){
-    navigation.navigate('Screens Main', {
-      screen: 'Agenda'
+  function navigateToAddLink(){
+    navigation.navigate('Screens Stack Add', {
+      screen: 'Add Link',
+    
     });
   };
-  
+
+  function navigateToEditLink(){
+    navigation.navigate('Screens Stack Edit', {
+      screen: 'Edit Link',
+    
+    });
+  };
+
   async function getLinks() {
-    const { data } = await api.get('/links/');
+    const { data } = await api.get('/links/1');
 
     setInfoLinks(data);
 
@@ -42,7 +50,7 @@ export default function LinksUteis({ navigation }) {
       <View style={styles.header}>
         <Text style={styles.headerText}>LINKS UTEIS</Text>
         <TouchableOpacity>
-          <MaterialIcons onPress={() => {}} name="add-link" size={30} color="red" />
+          <MaterialIcons onPress={navigateToAddLink} name="add-link" size={30} color="red" />
         </TouchableOpacity>
       </View>
 
@@ -62,7 +70,7 @@ export default function LinksUteis({ navigation }) {
 
             <TouchableOpacity
               style={styles.detailsButton}
-              onPress={() => { }}
+              onPress={navigateToEditLink}
             >
               <Text style={styles.detailsButtonText}>Editar LINK</Text>
               <AntDesign name="edit" size={18} color="red" />

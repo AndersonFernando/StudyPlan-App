@@ -5,9 +5,11 @@ import {
   Image
 } from 'react-native';
 
+// Importação da biblioteca de navegação entre telas
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 import materias from './assets/materias.png';
 import lembretes from './assets/lembretes.png';
@@ -16,30 +18,79 @@ import metas from './assets/objetivo.png';
 
 import ButtonCalendar from './components/ButtonCalendar';
 
+// Importação das Telas Principais da Aplicação
 import Agenda from './pages/Agenda';
 import Lembretes from './pages/Lembretes';
 import LinksUteis from './pages/LinksUteis';
 import Materias from './pages/Materias';
 import Metas from './pages/Metas';
 
+// Importação das Telas para Adicionar novos dados
 import AddLembrete from './pages/AddLembrete';
+import AddMateria from './pages/AddMateria';
+import AddLink from './pages/AddLink';
+import AddMeta from './pages/AddMeta';
+
+// Importação das Telas para editar dados
+import EditLink from './pages/EditLink'; 
+
 
 //import { Agenda } from 'react-native-calendars';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function ScreenAddLembrete() {
-  return(
+
+// Componete de navegação para as telas de Adicionar dados
+function ScreensAdd() {
+  return (
     <Stack.Navigator>
-      <Stack.Screen 
+      <Stack.Screen
         name="Add Lembrete"
         component={AddLembrete}
         options={{
-          headerShown:false
+          headerShown: false
         }}
       />
 
+      <Stack.Screen
+        name="Add Materia"
+        component={AddMateria}
+        options={{
+          headerShown: false
+        }}
+      />
+
+      <Stack.Screen
+        name="Add Link"
+        component={AddLink}
+        options={{
+          headerShown: false
+        }}
+      />
+
+      <Stack.Screen
+        name="Add Meta"
+        component={AddMeta}
+        options={{
+          headerShown: false
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+// Componente de navegação para as Telas de Editar dados
+function ScreensEdit() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen 
+        name="Edit Link"
+        component={EditLink}
+        options={{
+          headerShown: false
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -128,7 +179,7 @@ function ScreensMainTab() {
 export default function Routes() {
   return (
     <Stack.Navigator>
-      <Stack.Screen 
+      <Stack.Screen
         name="Screens Main"
         component={ScreensMainTab}
         options={{
@@ -136,9 +187,17 @@ export default function Routes() {
         }}
       />
 
+      <Stack.Screen
+        name="Screens Stack Add"
+        component={ScreensAdd}
+        options={{
+          headerShown: false
+        }}
+      />
+
       <Stack.Screen 
-        name="Screen Stack Add Lembrete"
-        component={ScreenAddLembrete}
+        name="Screens Stack Edit"
+        component={ScreensEdit}
         options={{
           headerShown: false
         }}

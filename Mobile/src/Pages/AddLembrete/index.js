@@ -24,8 +24,6 @@ export default function AddLembrete({ navigation }) {
   const [agenda_id, setAgenda_id] = useState('');
   const [usuario_id, setUsuario_id] = useState('');
 
-  const dataAdd = [];
-
   function returnToLembretes() {
     navigation.navigate('Screens Main', {
       screen: 'Lembretes',
@@ -33,7 +31,7 @@ export default function AddLembrete({ navigation }) {
   }
 
   function addLembrete() {
-    let date = [
+    let dataRequest = [
       {
         'nome': nome,
         'descricao': descricao,
@@ -43,7 +41,7 @@ export default function AddLembrete({ navigation }) {
       }];
 
 
-    api.post('/lembretes/adicionar/', date).then((res) => {
+    api.post('/lembretes/adicionar/', dataRequest).then((res) => {
       returnToLembretes();
       //console.log(res.data)
     }).catch((err) => {

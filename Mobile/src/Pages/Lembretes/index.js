@@ -44,7 +44,7 @@ export default function Lembretes({ navigation }) {
   };
 
   function navigateToAddLembrete() {
-    navigation.navigate('Screen Stack Add Lembrete', {
+    navigation.navigate('Screens Stack Add', {
       screen: 'Add Lembrete',
     });
   };
