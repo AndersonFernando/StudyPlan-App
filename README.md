@@ -1,7 +1,7 @@
 # 💡 Projeto de um APP de lista e agenda para organizar Estudos, Lembretes e Metas.
 
 ## 🔧 Sobre o projeto:
-- O projeto foi desenvolvido na cadeira de Processo de Desenvolvimento de Software utilizando a Metodologia Ágil SCRUM, ele se constitui em um APP que irá cadastrar matérias e organizar em um lista de estudos ajudar o usuario  estudar no seu contidiano. Incluindo outras funcionalidades como: links uteis, metas e lembretes.
+- O projeto foi desenvolvido na cadeira de Processo de Desenvolvimento de Software utilizando a Metodologia Ágil SCRUM, ele se constitui em um APP que irá cadastrar matérias e organizar em um lista de estudos afim de ajudar o usuario estudar no seu contidiano. Incluindo outras funcionalidades como: links uteis, metas e lembretes.
 
 ## ⚙ Metodologias:
 - Metodologia Ágil SCRUM
